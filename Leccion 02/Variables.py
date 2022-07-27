@@ -20,6 +20,12 @@ print(y)
 print(z)
 
 # Distintas formas de declarar variables
+
+# Opcion 1
 a = 10
+
+# Opcion 2
 a = b = 10
+
+# Opcion 3
 a, b, c = 1, 2, 3

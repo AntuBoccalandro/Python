@@ -1,5 +1,3 @@
-# Imprimir valores por consola
-
 # Imprimir texto por consola
 print('Hola Mundo') 
 
@@ -25,9 +23,12 @@ print(a, b, c)
 
 # Imprimir variables entre texto
 edad = 18
+
 # Opcion 1
 print(f'Para trabajar debes ser mayor de {edad} años')
+
 # Opcion 2
 print('Para trabajar debes ser mayor de', edad, 'años')
+
 # Opcion 3
 print('Para trabajar debes ser mayor de ' + str(edad) + ' años')
