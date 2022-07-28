@@ -8,7 +8,7 @@ string.rfind('hola') # Cada uno retorna la posición en la que se encuentre la s
 
 print(':'.join(['Python', 'es', 'un lenguaje'])) # El método str.join(iterable)  es usado para unir todos los elementos de un iterable con un espefico string str in Python. Si, el iterable no contiene ningún valor en los strings, Esto conduce a un TypeError exception.
 
-print(' y '.join(['A', 'B', 'B'])) # Concadena ' y ' entre los elementos de la tupla
+print(' y '.join(['A', 'B', 'C'])) # Concadena ' y ' entre los elementos de la tupla
 
 print(' '.join('Python')) # Concadena ' ' entre cada substring de Python
 lista = ['P', 'y', 't', 'h', 'o', 'n']
@@ -25,9 +25,6 @@ print(nuevo_string)
 string = 'Para mi esto es muy bonito'
 nuevo_string = string.replace('es', 'ES', 2)  # El método replace en su primer parámetro recive el substring que se quiere modificar y como segundo parámetro su reeplazo y como tercer parámetro la cantidad de ocurrencias que se qiuera modificar 
 print(nuevo_string)
-
-
-
 
 # La estructura de este método es la siguiente:
 # nombre_de_la_string[inicio:fin:pasos]
