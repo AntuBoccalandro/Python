@@ -52,12 +52,11 @@
 # Funciones recursivas
 # Descripción: uyna función reduriva en una función q que se manda a llamar a si misma para completar una cierta tarea
 
-def factorial(numero):
-    if numero == 1:
-        return 1
-    else:
-        return numero * factorial(numero - 1)
+# def factorial(numero):
+#     if numero == 1:
+#         return 1
+#     else:
+#         return numero * factorial(numero - 1)
 
-resultado = factorial(5)
-print(f'El factoriala de 5 es {resultado}')
-
+# resultado = factorial(5)
+# print(f'El factoriala de 5 es {resultado}')
