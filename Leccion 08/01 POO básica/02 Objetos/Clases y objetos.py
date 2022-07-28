@@ -1,5 +1,5 @@
 """
-1- 
+Creación de un objeto a partir de la clase creada
 """
 
 class Persona:
