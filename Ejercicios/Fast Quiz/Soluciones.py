@@ -32,7 +32,7 @@ print(x/y)
 """
 6- Opción D: Error, porque no se pueden hacer operaciones matemáticas con strings y datos numéricos, si se pueden sumar strings pero no un string y un float o un int.
 """
-z = int(2.0)+str(5)+float(3)
+#z = int(2.0)+str(5)+float(3)
 print(x)
 
 """
@@ -51,7 +51,7 @@ print(function(4))
 10- Opción D: Error, porque se está intentando sumar un entero a un string y se está imprimiendo la variable b, variable que no se encuentra declarada.
 """
 x = 2
-print('Hi'+3, ':Python', x)
+#print('Hi'+3, ':Python', x)
 
 """
 11- Repetida
@@ -63,3 +63,56 @@ print('Hi'+3, ':Python', x)
 y = int('2')
 x = 8
 print(x/y**2)
+
+"""
+13- Opción C: [9,7,,5,3,1], porque se accede a los elementos de la lista de manera inversa, se accede desde el primer elemento hasta el último de dos en dos de manera inversa.
+"""
+lst = [0,1,2,3,4,5,6,7,8,9]
+print(lst[::-2])
+
+"""
+14- Opción B: [10,20], porque se suman las dos listas y esto resulta en una única lista con los elementos de las listas sumadas.
+"""
+x = [10]
+y = x
+y += [20]
+print(x)
+
+"""
+15- Opción A: 32.0, porque 
+"""
+x = 4
+while x < 10:
+    x *= x/2
+print(x)
+
+"""
+16- Opción A: abc, porque se unen con sin ningún espacio los elementos de la lsita con el método join.
+"""
+x = ['a', 'b', 'c']
+result = ''.join(x)
+print(result)
+
+"""
+17- Repetida
+"""
+
+"""
+18- Opción D: Error, porque no se pueden concadenar enteros.
+"""
+x = 4372124
+#y = x[2:4] + x[7]
+#print(y)
+
+""""
+19- Opción A: {1, 2, 3, 4, '4'}, porque se unen los dos sets.
+"""
+set1 = {1,2,3, int('4')}
+set2 = {3, str(4)}
+print(set1.union(set2))
+
+"""
+20- Opción A: [-5,-2,11], porque se emepieza el rango desde el -5 hasta el 2 haciendpo saltos de 3 en 3.
+"""
+x = list(range(-5,3,3))
+print(x)
