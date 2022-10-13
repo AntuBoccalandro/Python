@@ -375,68 +375,11 @@ def rimar(word1, word2):
 """
 
 def primo(n):
-    if n%n == 0:
+    if n%n = 0:
         return True
     else:
         return False
 
 """
-33- Crea una calculadora en la que se ingrese un número del 1 al 4 para seleccionar la operación, también el usuario deberá ingresar dos operandos.
-"""
-
-def calculadora():
-    print("""
-        BIENVENIDO!
-        Ingrese 1 para sumar
-        Ingrese 2 para restar
-        Ingrese 3 para multiplicar
-        Ingrese 4 para dividir    
-    """)
-    o = input('Ingrese una de las opciones: ')
-    n1 = int(input('Ingrese operando 1: '))
-    n2 = int(input('Ingrese operando 2: '))
-    if o == '1':
-        print(f'Resultado: {n1 + n2}')
-    if o == '2':
-        print(f'Resultado: {n1 - n2}')
-    if o == '3':
-        print(f'Resultado: {n1 * n2}')
-    if o == '4':
-        print(f'Resultado {n1 / n2}')
-
-
-"""
-34- Crea una calculadora en la que se pueda ingresar una cantidad de operandos indefinidos y se detecte automáticamente los operadores. Ejemplo: 
-INPUT = 5+5
-OUTPUT = 10
-"""
-
-"""
-35- Crea una función "acumulada" que reciba como parámetro una lista de números y retorne una lista con la suma acumulada de estas.
-Ejemplo:
-INPUT = [1,2,3]
-OUTPUT = [1,3,5]
-"""
-
-def acumulado(lista):
-    result = []
-    suma = 0
-    for i in lista:
-        suma += i
-        result.append(suma)
-    return result
-
-"""
-36- Este ejercicio trata de poner en práctica tus habilidades con el lenguaje. Es muy sencillo. Consiste en implementar una función cuadrado(n) que tome como argumento un número entero n y genere un cuadrado de n x n formado, precisamente, por el número n.
-"""
-
-def lista(n):
-    result = []
-    lista = [list(n for i in range(n))]
-    for i in range(n):
-        result += lista
-    return result
-
-"""
-37- Implementa una función final_comun_mayor(str1, str2), a la que se le pase como argumento dos cadenas de caracteres y devuelva el final común a ambas más largo.
+33- 
 """
