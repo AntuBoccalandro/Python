@@ -11,11 +11,11 @@ lista.extend(añadir) # Añade los elementos de una lista a otra
 print(lista.index(3)) # Devuelve el índce de la primera aparición del elemento
 print(lista.index(5, 3)) # Devuelve el índice de la segunda aparición del elemento
 lista.insert(5, 20) # Inserta un elemeneto en un indice especificado en el primer parámetro
-lista.pop(5) # Elimina un elemnto por su índice
-lista.remove(10) # Elimina un elemnto por su valor
+lista.pop(5) # Elimina un elemento por su índice
+lista.remove(10) # Elimina un elemento por su valor
 lista.reverse() # Reversa todos los elementos de la lista
 lista.sort() # Ordena los elementos de una manera alfabética o asendente en caso de numeros.
-lista.len() # Muestra el largo de un elemento, por ejemplo la palabra Hola.
+lista.len() # Muestra el largo de un elemento, por ejemplo la palabra Hola -> 4
 print(lista)
 
 # La estructura de este método es la siguiente:
@@ -25,3 +25,5 @@ lista[2:4] # nombre_de_la_lista[inicio:fin]
 lista[1:]  # nombre_de_la_lista[inicio:]
 lista[:2]  # nombre_de_la_lista[:fin]
 lista[0:4:2] # nombre_de_la_lista[inicio:fin:pasos]
+lista[2] # nombre_de_la_lista(indice)
+lista[-9] # nombre_de_la_lista(indice negativo), los índices negativos sirven para acceder a los elementos de la lista de manera inversa, de atrás hacia adelante.
