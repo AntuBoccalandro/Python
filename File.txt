@@ -52,3 +52,17 @@ Lección 07:
         > Con argumentos kwargs > https://realpython.com/python-kwargs-and-args/#using-the-python-kwargs-variable-in-function-definitions
         > Funciones recursivas > https://realpython.com/python-recursion/#what-is-recursion
         > Funciones lambda > https://realpython.com/python-lambda/
+
+Lección 08:
+    > POO básica
+        > Clases
+        > Objetos
+        > Atributos
+        > Métodos
+        > Módulos
+    > Herencia
+        > Herencia múltiple
+    > Clases abstractas
+
+PEP8:
+    > PEP8 > https://realpython.com/python-pep8/
