@@ -1,0 +1,54 @@
+Lección 00:
+    > Ready
+
+Lección 01:
+    > Ready
+
+Lección 02:
+    > Ready
+
+Lección 03:
+    > Tipos de datos
+        > Booleanos
+            > https://realpython.com/python-boolean/#the-python-boolean-type
+            > https://realpython.com/python-and-operator/#using-pythons-and-operator-in-non-boolean-contexts
+            > https://realpython.com/python-or-operator/
+            > https://realpython.com/python-not-operator/
+        > Diccionarios > https://realpython.com/python-dicts/#defining-a-dictionary
+        > Numéricos 
+            > Módulo cmath
+        > Set > https://realpython.com/python-sets/
+        > Tipo secuencia
+            > Listas > https://realpython.com/python-lists-tuples/?utm_source=pocket_mylist
+            > Tuplas > https://realpython.com/python-lists-tuples/?utm_source=pocket_mylist
+
+Lección 04:
+    > Operadores > https://realpython.com/python-operators-expressions/ 
+        > Operadores aritméticos
+        > Operadores de comparación
+        > Operadores lógicos
+        > Operadores de identificación 
+        > Operadores de bits > https://realpython.com/python-bitwise-operators/
+        > Orden de resolución de operadores > https://pemdas.info
+
+Lección 05:
+    > Condicionales > https://realpython.com/python-conditional-statements/
+        > if > https://realpython.com/python-conditional-statements/
+        > else > https://realpython.com/python-conditional-statements/
+        > elif > https://realpython.com/python-conditional-statements/
+        > switch > https://realpython.com/python-conditional-statements/
+
+Lección 06:
+    > Loops 
+        > While > https://realpython.com/python-while-loop/
+        > Do-While > https://realpython.com/python-do-while/
+        > for > https://realpython.com/python-for-loop/
+
+Lección 07:
+    > Funciones > https://realpython.com/defining-your-own-python-function/#functions-in-python
+        > Sin argumentos > https://realpython.com/defining-your-own-python-function/#functions-in-python
+        > Con argumentos fijos > https://realpython.com/defining-your-own-python-function/#functions-in-python
+        > Con argumentos args > https://realpython.com/python-kwargs-and-args/#using-the-python-kwargs-variable-in-function-definitions
+        > Con argumentos kwargs > https://realpython.com/python-kwargs-and-args/#using-the-python-kwargs-variable-in-function-definitions
+        > Funciones recursivas > https://realpython.com/python-recursion/#what-is-recursion
+        > Funciones lambda > https://realpython.com/python-lambda/
