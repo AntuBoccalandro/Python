@@ -10,8 +10,6 @@ Lección 02:
 Lección 03:
     > Tipos de datos
         > Diccionarios > https://realpython.com/python-dicts/#defining-a-dictionary
-        > Numéricos 
-            > Módulo cmath
         > Set > https://realpython.com/python-sets/
         > Tipo secuencia
             > Listas > https://realpython.com/python-lists-tuples/?utm_source=pocket_mylist
