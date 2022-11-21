@@ -10,38 +10,18 @@ Lección 02:
 Lección 03:
     > Tipos de datos
         > Diccionarios > https://realpython.com/python-dicts/#defining-a-dictionary
-        > Set > https://realpython.com/python-sets/ FALTA POCO
 
 Lección 04:
-    > Operadores > https://realpython.com/python-operators-expressions/ 
-        > Operadores aritméticos
-        > Operadores de comparación
-        > Operadores lógicos
-        > Operadores de identificación 
         > Operadores de bits > https://realpython.com/python-bitwise-operators/
-        > Orden de resolución de operadores > https://pemdas.info
 
 Lección 05:
-    > Condicionales > https://realpython.com/python-conditional-statements/
-        > if > https://realpython.com/python-conditional-statements/
-        > else > https://realpython.com/python-conditional-statements/
-        > elif > https://realpython.com/python-conditional-statements/
-        > switch > https://realpython.com/python-conditional-statements/
+    > Ready
 
 Lección 06:
-    > Loops 
-        > While > https://realpython.com/python-while-loop/
-        > Do-While > https://realpython.com/python-do-while/
-        > for > https://realpython.com/python-for-loop/
+    > Ready
 
 Lección 07:
-    > Funciones > https://realpython.com/defining-your-own-python-function/#functions-in-python
-        > Sin argumentos > https://realpython.com/defining-your-own-python-function/#functions-in-python
-        > Con argumentos fijos > https://realpython.com/defining-your-own-python-function/#functions-in-python
-        > Con argumentos args > https://realpython.com/python-kwargs-and-args/#using-the-python-kwargs-variable-in-function-definitions
-        > Con argumentos kwargs > https://realpython.com/python-kwargs-and-args/#using-the-python-kwargs-variable-in-function-definitions
-        > Funciones recursivas > https://realpython.com/python-recursion/#what-is-recursion
-        > Funciones lambda > https://realpython.com/python-lambda/
+    > Ready
 
 Lección 08:
     > POO básica

@@ -81,7 +81,7 @@ import cmath
   # (1.4670482135772953-0.20058661813123432j)
   ```
 
-### Funciones iperbólicas
+### Funciones hiperbólicas
 
 
 * **cmath.acosh( < x > )**: retorna el inverso del coseno hiperbólico de x.

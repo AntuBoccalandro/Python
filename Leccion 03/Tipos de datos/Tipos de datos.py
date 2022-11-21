@@ -1,6 +1,3 @@
-# Tipos de datos
-# Para saber el tipo de dato de una variable se utiliza la función type(nombre_variable)
-
 # -------------------- Datos numéricos --------------------
 
 # Integrer --> int Descripción: números enteros.

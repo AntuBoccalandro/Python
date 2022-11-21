@@ -1,13 +1,10 @@
-# 3.2 Obtener valores del usuario
-
-## Obtener valores del usuario
+# Obtener valores del usuario
 
 Cuando hablamos de obtener valores nos referimos a darle al usuario un campo donde podrá escribir una serie de datos que los almacenaremos en una variable. Para ello utilizamos la función input().
 
 ```python
 numero = input("Ingrese un número: ")
 
-# OUTPUT
 # Ingrese un número:  
 ```
 
@@ -17,7 +14,6 @@ Por defecto cualquier dato que introducimos en la función es de tipo string (st
 numero = int(input("Ingrese un número: "))
 type(numero)
 
-# OUTPUT
 # Ingrese un número: 99
 # <class 'int'>
 ```
@@ -31,5 +27,7 @@ from getpass import getpass
 
 password = getpass(prompt='Ingrese su contraseña: ')
 print(password)
+
+# Ingrese su contraseña: 
 # 12349
 ```

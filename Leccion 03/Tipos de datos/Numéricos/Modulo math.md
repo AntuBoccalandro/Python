@@ -119,14 +119,106 @@ print(math.nan)
     # 2
     ```
 
-### Trigonometría 
+### Funciones trigonométricas
 
-* **math.radians()**: transforma a radianes grados. 
-* **math.degrees()**: transforma a grados radianes. 
-* **math.sin()**: calcula el seno de un ángulo.
-* **math.cos()**: calcula el coseno de un ángulo.
-* **math.tan()**: calcula la tangente de un ángulo.
-* **math.asin()**: calcula el arcoseno de un ángulo.
-* **math.acos()**: calcula el arcocoseno de un ángulo.
-* **math.atan()**: calcula el arcotangente de un ángulo.
-* **math.hypot()**: calcula la hipotenusa de un ángulo.
+* **math.radians( < x >)**: transforma a grados a radianes. 
+    ```python
+    print(math.radians(360))
+    # 6.283185307179586
+    ```
+
+* **math.degrees( < x >)**: transforma a radianes a grados. 
+    ```python
+    print(math.degrees(6.283185307179586))
+    # 360.0
+    ```
+
+* **math.sin( < x >)**: calcula el seno de un ángulo.
+    ```python
+    print(math.sin(30))
+    # -0.9880316240928618
+    ```
+
+* **math.cos( < x >)**: calcula el coseno de un ángulo.
+    ```python
+    print(math.cos(30))
+    # 0.15425144988758405
+    ```
+
+* **math.tan( < x >)**: calcula la tangente de un ángulo.
+    ```python
+    print(math.tan(30))
+    # -6.405331196646276
+    ```
+
+* **math.asin( < x >)**: calcula el arcoseno de un ángulo.
+    ```python
+    print(math.asin(1))
+    # 1.5707963267948966
+    ```
+
+* **math.acos( < x >)**: calcula el arcocoseno de un ángulo.
+    ```python
+    print(math.acos(1))
+    # 3.141592653589793
+    ```
+
+* **math.atan( < x >)**: calcula el arcotangente de un ángulo.
+    ```python
+    print(math.atan(1))
+    # 0.7853981633974483
+    ```
+* **math.atan2( < x >)**: atan2(y, x) devuelve el valor de atan(y/x) en radianes. 
+    ```python
+    print(math.atan2(-0.9, -0.9))
+    # -2.356194490192345
+    ```
+
+* **math.hypot( < x >)**: calcula la hipotenusa de un ángulo.
+    ```python
+    print(math.hypo(30))
+    # 30.0
+    ```
+* **math.dist( < p >, < q >)**: retorna la distancia entre dos puntos p y q.
+    ```python
+    print(math.dist((2,4), (5,9)))
+    # 5.830951894845301
+    ```
+
+### Funciones hiperbólicas
+
+* **math.acosh( < x >)**: retorna el coseno hiperbólico inverso de x.
+    ```python
+    print(math.acosh(90))
+    # 5.192925985263684
+    ```
+
+* **math.asinh( < x >)**: retorna el seno hiperbólico inverso de x.
+    ```python
+    print(math.asinh(90))
+    # 5.192987713658941
+    ```
+
+* **math.atanh( < x >)**: retorna la tangente hiperbólica inversa de x.
+    ```python
+    print(math.atanh(0.5))
+    # 0.5493061443340549
+    ```
+
+* **math.cosh( < x >)**: retorna el coseno hiperbólico de x.
+    ```python
+    print(math.cosh(90))
+    # 6.102016471589204e+38
+    ```
+
+* **math.sinh( < x >)**: retorna el seno hiperbólico de x.
+    ```python
+    print(math.sinh(90))
+    # 6.102016471589204e+38
+    ```
+
+* **math.tanh( < x >)**: retorna la tangente hiperbólica de x.
+    ```python
+    print(math.tanh(90))
+    # 1.0
+    ```
