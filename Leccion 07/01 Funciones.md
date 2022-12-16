@@ -7,7 +7,7 @@ Las funciones son bloques de código que permite ser llamada en cualquier parte 
 Las funciones en Python se definen de la siguiente manera:
 
 ```python
-def <function_name>(([parameter1, parameter2......parameterN])):
+def <function_name>(<parameter1, parameter2......parameterN>):
   <code>
 ```
 
@@ -27,7 +27,7 @@ La llamada de funciones corresponden a ejecutar la función. Es decir, si creamo
 
 **Sintaxis**
 ```python
-[<function_name>]([argument1, argument2......argumentN])
+<function_name>(<argument1, argument2......argumentN>)
 ```
 
 **Ejemplo:**
@@ -48,7 +48,7 @@ es cuando en una función se definen una cierta cantidad de parámetros, cuando 
 
 * **Sintaxis**:
   ```python
-  [<functions_name>]([argument1, argument2......argumentN])
+  <<functions_name>>(<argument1, argument2......argumentN>)
   ```
 
 * **Ejemplo**:
@@ -69,7 +69,7 @@ este tipo de argumentos consiste en colocar como argumento el nombre del paráme
 
 * **Sintaxis**: se detalla la sintaxis a la hora de la llamada de la función y paso de argumentos.
   ```python
-  [<function_name>]([<key1>=<value1>, <key2>=<value2>......<keyN>=<valueN>])
+  <function_name>(<key1>=<value1>, <key2>=<value2>......<keyN>=<valueN)
   ```
 
 * **Ejemplo**:
@@ -117,7 +117,7 @@ son útiles cuando no se sabe la cantidad de argumentos que va a recibir la func
 
 * **Sintaxis**:
   ```python
-  def <function_name>(*[<argument_name>]):
+  def <function_name>(*<argument_name>):
     <code>
   ```
 * **Ejemplo**:
@@ -161,7 +161,7 @@ es similar a los argumentos variables anteriormente vistos pero esta sintazis di
 
 * **Sintaxis**:
   ```python
-  def <function_name>(**[<argument_name>])
+  def <function_name>(**<argument_name>)
     <code>
   ```
   Los dos asteriscos `**` indican que los parámetros de la función son de tipo < clave-valor > y variables.
@@ -205,7 +205,7 @@ Si se desea especificar el tipo de dato de los parámetros Python tiene una form
 
 **Sintaxis**:
 ```python
-def [<function_name>]([<argument_name>]:[<datatype>])
+def <function_name>(<argument_name>:<datatype>)
   <code>
 ```
 NOTA: si se ingresa otro tipo de dato del especificado la función se ejecutará sin errores pero si se especifica el tipo de dato es porque si se ingresa otro la función podría fallar o no retornar valores correctos.
@@ -228,7 +228,7 @@ El retorno de una función consiste en un valor o varios que retorna la función
 
 **Sintaxis**:
 ```python
-def <function_name>([<argument_name>])
+def <function_name>(<argument_name>)
   <code> 
   return <value>
 ```
@@ -252,7 +252,7 @@ NOTA: como vemos se define la función con el nombre de suma y luego se suman su
 Si bien no es necesario especificar el tipo de dato que retorna la función, si es una buena práctica utilizarlo ya que permite saber el dato que se espera de la función. Además cuando llamemos a la función además de los parámetros de la función veremos el tipo de dato que retorna.
 **Sintaxis**:
 ```python
-def <function_name>([<argument_name>]) -> [<datatype>]
+def <function_name>(<argument_name>) -> <datatype>
   <code> 
 ```
 NOTA: el nombre del tipo de dato debe estar escrito de la forma abreviada, tales como: `int`, `str`, `list`, etc.
@@ -272,10 +272,10 @@ print(suma(10, 20))
 Las funciones así como las librerías o clases se pueden importar, es decir, utilizar las funciones de un archivo en otro diferente.
 
 ```python
-from [<filename>] import [<function_name>]
+from <filename> import <function_name>
 ```
 
-El código anterior muestra la importación de una función desde un archivo. La palabra `from` indica el archivo desde donde vamos a importar la función e `import [<function_name>]` permite importar la/s funciones que se quieran importar.
+El código anterior muestra la importación de una función desde un archivo. La palabra `from` indica el archivo desde donde vamos a importar la función e `import <function_name>` permite importar la/s funciones que se quieran importar.
 
 A contuación se detalla las diferentes opciones de importar una o varias funciones de un archivo.
 

@@ -145,37 +145,37 @@ import cmath
 
 
 * **cmath.pi**: la constante matemática π, como número de coma flotante.
-```python
-cmath.pi
-# 3.141592653589793
-```
+  ```python
+  cmath.pi
+  # 3.141592653589793
+  ```
 * **cmath.e**: la constante matemática e, como número de coma flotante.
-```python
-cmath.
-# 2.718281828459045
-```
+  ```python
+  cmath.
+  # 2.718281828459045
+  ```
 * **cmath.tau**: la constante matemática τ, como número de coma flotante.
-```python
-cmath.
-# 6.283185307179586
-```
+  ```python
+  cmath.
+  # 6.283185307179586
+  ```
 * **cmath.inf**: números de coma flotante de +infinito. Equivalente a float('inf').
-```python
-cmath.
-# inf
-```
+  ```python
+  cmath.
+  # inf
+  ```
 * **cmath.infj**: números complejos con la parte real cero y números positivos infinitos como la parte imaginaria. Equivalente a complex(0.0, float('inf')).
-```python
-cmath.
-# infj
-```
+  ```python
+  cmath.
+  # infj
+  ```
 * **cmath.nan**: el valor del número de coma flotante «not a number» (NaN) . Equivalente a float('nan').
-```python
-cmath.
-# nan
-```
+  ```python
+  cmath.
+  # nan
+  ```
 * **cmath.nanj**: números complejos con parte real cero y como parte imaginaria NaN. Equivalente a complex(0.0, float('nan')).
-```python
-cmath.
-# nanj
-```
+  ```python
+  cmath.
+  # nanj
+  ```
