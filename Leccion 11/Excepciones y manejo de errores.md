@@ -1,1 +1,0 @@
-# Excepciones y manejo de errores
