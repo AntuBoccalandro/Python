@@ -119,9 +119,20 @@ finally:
     print('Cleaning up, irrespective of any exceptions.')
 ```
 
+
+# Creación de una excepción
+
+Si se quiere crear una excepción propia Python no los deja muy fácil. Simplemenete hay que crear una clase con el nombre de la excepción que queremos crear y luego esta clase heredará de Exception.
+
+```python
+class CustomException(Exception):
+    pass
+```
+Dentro de la clase luego podríamos agregar el código que querramos para agregarle "funcionalidad" a la excepción. 
+
 # Resumen
 
-* El trybloque le permite probar un bloque de código en busca de errores.
-* El exceptbloque le permite manejar el error.
-* El elsebloque te permite ejecutar código cuando no hay ningún error.
-* El finallybloque le permite ejecutar código, independientemente del resultado de los bloques de prueba y excepción.
+* `Try` le permite probar un bloque de código en busca de errores.
+* `Except` le permite manejar el error.
+* `Else` te permite ejecutar código cuando no hay ningún error.
+* `Finally` le permite ejecutar código, independientemente del resultado de los bloques de prueba y excepción.

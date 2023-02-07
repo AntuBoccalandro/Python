@@ -180,7 +180,7 @@ es similar a los argumentos variables anteriormente vistos pero esta sintazis di
   ```
   NOTA: en el ejemplo se puede ver como a partir de una cantidad de nombres estos se almacenan en un diccionario al que luego se accede a cada calve y valor para mostrarlo en pantalla.
 
-## Orden de los argumentos de la fución
+## Orden de los argumentos de la función
 
 El orden de los argumentos de una fnción es importante ya que podríamos tener errores a la hora de ejecutar nuestras funciones. Se pueden combinar los diferentes tipos de argumentos pero no se puede utilizar todos de cualquier manera, deben seguir un orden:
   *  Argumentos fijos o estándar
@@ -295,3 +295,81 @@ A contuación se detalla las diferentes opciones de importar una o varias funcio
   ```python
   import my_functions
   ```
+
+## Recibir funciones como parámetros
+
+Al igual que podemos utilizar variables como argumentos de la función, también podemos recibir funciones como parámetros. Esto si te das cuenta tiene lógica. Las funciones al igual que las variables tienen un identificador (el nombre de la función o el nombre de la variable) con el cual podemos referirnos. 
+
+**Ejemplo**:
+```python
+def fun(x, double):
+  return double(x)
+
+def double(x):
+  return x * 2
+
+fun(10, double)
+
+# 20 
+```
+
+Como vemos tenemos dos funciones. La primera, fun() recibe como argumentos una variable x y lo que parecería ser una variable pero es la función double, anteriormente declarada. La función fun retorna el resultado que retorna la función double(x). Tambien declaramos otra funcion llamada double() que recibe como argumento a x y retorna su doble. Por último, cuando llamamos a la función fun() le pasamos el valor de x y el nombre de la función. Como resultado obtenemos 20. 
+
+En este ejemplo no tiene sentido separar en dos funciones estas acciones tan sencillas, pero es muy útil para funciones grandes. Aunque no es una práctica muy recomendable porque estamos creando una función que depende de una o más funciones. Por lo que si hubiese algún error en cualquiera de las funciones de la que dependa la principal se produciría un error. Además de que no es modularizable fácilmente.
+
+## Funciones anónimas
+
+Las funciones anónimas son solamente funciones que no tienen un identificador con el cual nosotros podamos llamar a esa función. En Python este concepto se lo une con las lambda fuctions. El nombre de la keyword `lambda` viene dado por las matemáticas. 
+
+**Sintaxis**:
+```python
+lambda <arguments>: <expresion>
+```
+
+**Ejemplo**:
+```python
+x = 10
+lambda x: x * 2
+
+# 20
+```
+Como vemos la expresión retorna 20, esto porque la función recibe como parámetros a x, luego la expresión dentro de la función expresa la multiplicación de x por dos. Por lo que el resultado final es 20. Pero esta función al ser una función anónima no es posible llamarla, al no tener un nombre con el cual identificarla como si fuese una variable o una función.
+
+Las funciones lambda se limitan a operaciones de una línea. Es decir, no podemos utilizar varias líneas de código como en las funciones definidas. 
+
+Este tipos de funciones son bastante utilizadas en programación funcional, map, filters y reduce.
+
+## Chaching de funciones
+
+El caching de funciones consiste en alamacenar los resultados de la función en caché para que si se realiza una segunda llamada a la función esta retorne el resultado en caché y no tenga que volver a calcular. Esta práctica en funciones que realizen cálculos que lleven bastante tiempo y consumo de recursos permite ahorrar bastante tiempo.
+
+### Implentación manual
+
+```python
+def is_prime(num, _cache={}):
+    if num not in _cache:
+        _cache[num] = True
+        for n in range(2, num):
+            if num % n == 0:
+                _cache[num] = False
+                break
+    return _cache[num]
+```
+Como vemos creamos un diccionario llamado _cache, este diccionario será el responsable de guardar los resultados de la función. Cuando se ejecute por primera vez la función no tendrá ningún valor guardado en la caché por lo que se realizará el cálculo correspondiente y se guardará en la caché, para que la segunda vez que se ejecute la función se realize la comprobación del argumento en la caché, si esto es verdadero se volverá a calcular el resultado, en caso de que el argumento ya haya sido ingresado anteriormente se retornará directamente el resultado almacenado en la caché.
+
+### Implementación utilizando functools
+
+El módulo functools incorpora un decorador que nos permite implementar un sistema de caché en nuestras funciones sin necesidad de modificarlas, simplemente agregando un decorador.
+```python
+from functools import lru_cache
+```
+
+```python
+@lru_cache(maxsize=128)
+def is_prime(num):
+  for n in range(2, num):
+      if num % n == 0:
+        return True
+  return False
+``` 
+
