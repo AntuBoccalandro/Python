@@ -1,8 +1,0 @@
-Faltantes:
-
-Lección 07:
-    > Recursividad
-    > Implementación de una caché propia
-    > Generadores
-    > Decordadores
-    > Corrutinas

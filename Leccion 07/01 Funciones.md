@@ -339,7 +339,7 @@ Las funciones lambda se limitan a operaciones de una línea. Es decir, no podemo
 
 Este tipos de funciones son bastante utilizadas en programación funcional, map, filters y reduce.
 
-## Chaching de funciones
+## Chaching de funciones o memoización
 
 El caching de funciones consiste en alamacenar los resultados de la función en caché para que si se realiza una segunda llamada a la función esta retorne el resultado en caché y no tenga que volver a calcular. Esta práctica en funciones que realizen cálculos que lleven bastante tiempo y consumo de recursos permite ahorrar bastante tiempo.
 
@@ -372,4 +372,45 @@ def is_prime(num):
         return True
   return False
 ``` 
+
+# Funciones anidadas
+
+Las funciones anidadadas, al igual que los ciclos anidados, o condicionales anidados, consiste en tener funciones dentro de otras 
+funciones. Este tema será de utilidad para los decoradores.
+
+**Ejemplo**:
+```python
+def external_function():
+    def internal_function():
+        print('I am an internal function')
+    internal_function()
+
+
+external_function()
+internal_function()
+
+# I am a internal function
+# NameError
+```
+Como vemos la función externa contiene a una función interna que imprime un mensaje por consola, la función que contiene a la función interna lo que hace, además de contener otras funciones, es llamarla para que la función interna se ejecute. Entonces cuando llamamos a la función externa lo que estamos haciendo es llamar a la función interna. Algo a tener en cuenta es que podemos llamar a la función externa desde nuestro programa principal, pero no podemos llamar a las funciones internas. Las funciones internas se encuentran contenidas o protegidas por la función externa, es por eso que cuando intentamos llamar a la función interna desde fuera de la función contenedora obtenemos un error, en este caso un NameError, ya que para Python esta función no se encuentra definida.
+
+**Ejemplo**:
+```python
+def one():
+  def two():
+    def three():
+      def four():
+        print('I am a four function')
+      four()
+    three()
+  two()
+
+
+one()
+
+# I am a four function
+```
+En este ejemplo se dispone de 4 funciones, una conteniendo a la otra. Como vemos las funciones se van llamando una a la otra pero sin llegar a ejecutar la función `one` ya que esta directamente la llamaremos desde el programa principal.
+
+Este tema se verá con más detalle en la creación de decoradores. Los decoradores tienen una estructura de funciones anidadas, reciben como parámetros a otras funciones y logran integrar todo el concimiento sobre funciones.
 
