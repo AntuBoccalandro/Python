@@ -174,7 +174,61 @@ WARNING:example_logger:This is a Warning
 
 "Se recomienda que utilicemos loggers a nivel de módulo pasando `__name__` como parámetro de nombre a getLogger() para crear un objeto logger ya que el propio nombre del logger nos indicaría desde dónde se están registrando los eventos. `__name__` es una variable especial incorporada en Python que se evalúa como el nombre del módulo actual." 
 
-# Handlers
+```python
+logger = logging.getLogger(__name__)
+```
 
+# Ejemplo de loggigin 
+
+Supongamos que tenemos una aplicación que realiza una petición a una api. Queremos llevar un registro de las peticiones que se han hecho. Tanto la hora y fecha de la petición, como la url y el código de respuesta cuando este es uno que no sea 200.
+
+Example.pyh
+```python
+import logging
+import requests
+import time
+import random
+
+
+logging.basicConfig(
+    level=logging.DEBUG, 
+    filename='file.log', 
+    filemode='w', 
+    format='%(name)s - %(levelname)s - %(message)s'
+    )
+
+logger = logging.getLogger('Example Logger')
+
+
+while True:
+    time.sleep(2)
+    url = random.choice(['http://127.0.0.1:5000/api', 'http://127.0.0.1:5000/'])
+    getted_request = requests.get(url=url)
+    if getted_request.status_code == 200:
+        logger.debug(f'The url={url} returned {getted_request.status_code} HTTP code.')
+    else:
+        logger.warning(f'The url={url} returned {getted_request.status_code} HTTP code.')
+```
+
+Example file.log:
+```log
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /api HTTP/1.1" 404 207
+Example Logger - WARNING - The url=http://127.0.0.1:5000/api returned 404 HTTP code.
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /api HTTP/1.1" 404 207
+Example Logger - WARNING - The url=http://127.0.0.1:5000/api returned 404 HTTP code.
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /api HTTP/1.1" 404 207
+Example Logger - WARNING - The url=http://127.0.0.1:5000/api returned 404 HTTP code.
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /api HTTP/1.1" 404 207
+Example Logger - WARNING - The url=http://127.0.0.1:5000/api returned 404 HTTP code.
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET / HTTP/1.1" 200 23
+Example Logger - DEBUG - The url=http://127.0.0.1:5000/ returned 200 HTTP code.
+urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:5000
+urllib3.connectionpool - DEBUG - http://127.0.0.1:5000 "GET /api HTTP/1.1" 404 207
+```
 
 

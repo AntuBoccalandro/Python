@@ -75,7 +75,6 @@ Lo que es importante saber son algunas funciones del módulo que permiten la int
 
 # Funcionalidades del módulo
 
-
 ## Obtener valores de la base de datos
 
 Una vez establecida la conexión y creado el cursor se pueden utilizar estos tres métodos:
@@ -140,4 +139,3 @@ Como se puede ver ejemplificado en código se ve claramente la diferencia entre 
 Como se puede ver fácilmente en los ejemplos de código las diferencias entre los tres métodos.
 
 NOTA: como nota adicional se puede observar que cuando llamamos a cuaquiera de estos métodos estos nos retornan listas de tuplas que podemos recorrer para realizar acciones o visualizaciones de los datos.
-

@@ -77,4 +77,95 @@ person.see_datails()
 # Error
 ```
 
-# ReadOnly
+# **Métodos getter, setters y deleters**
+
+Los métodos getter, setter y deletter nos permiten manipular los accesos a los atributos protegidos o privados de una clase.
+
+## Método property
+
+Este decorador `property` corresponde al getter, es decir, accede al atributo para mostralo. Por ejemplo: 
+```python
+class Persona(object):
+    def __init__(self, nombre):
+        self.__nombre = nombre 
+
+
+    @property
+    def nombre(self):
+        return self.__nombre
+
+cliente = Persona('Juan')
+print(cliente.nombre)
+
+# Juan
+```
+Como vemos podemos acceder al atributo nombre aunque este se encuentre encapsulado (protegido) mediante el decorador @property. Este decorador nos permite acceder al método y que este nos retorne el atributo nombre, pero no accedemos a este directamente.
+
+## Método setter
+
+El decorador `property.setter` nos permite setear un nuevo valor para un atributo, pero al ser un método el que modifica el valor tambien podríamos realizar otras operaciones además de reasignar el nuevo valor, por ejemplo, verificar este nuevo valor antes de asignarlo.
+```python
+class Persona(object):
+    def __init__(self, nombre):
+        self.__nombre = nombre 
+
+
+    @property
+    def nombre(self):
+        return self.__nombre
+
+    
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        if nuevo_nombre != '':
+            self.__nombre = nuevo_nombre
+        else:
+            print('El nombre debe ser diferente a ""')
+
+cliente = Persona('Juan')
+print(cliente.nombre)
+cliente.nombre = 'Juan Cervera'
+print(cliente.nombre)
+
+# Juan
+# Juan Cervera
+```
+
+## Método deletter
+
+El método deletter nos permite como el nombre indica eliminar un atributo del objeto. Esto mediante el decorador @property.deleter
+```python
+class Persona(object):
+    def __init__(self, nombre):
+        self.__nombre = nombre 
+
+
+    @property
+    def nombre(self):
+        return self.__nombre
+
+    
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        if nuevo_nombre != '':
+            self.__nombre = nuevo_nombre
+        else:
+            print('El nombre debe ser diferente a ""')
+
+    @nombre.delter
+    def nombre(self):
+        del self.__nombre
+
+cliente = Persona('Juan')
+print(cliente.nombre)
+cliente.nombre = 'Juan Cervera'
+print(cliente.nombre)
+del cliente.nombre
+print(cliente.nombre)
+
+# Juan
+# Juan Cervera
+# Error. No existe una proiedad llamada nombre.
+```
+Como vemos el método deleter nos permite eliminar la propiedad de un objeto aunque esta se encuentre protegida.
+
