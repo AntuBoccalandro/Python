@@ -1,0 +1,108 @@
+Introducicón:
+    > Que framework y qué es flask
+    > Creación del proyecto
+        > Entorno virtual
+        > Primera aplicación de flask, Hola Mundo
+
+Rutas:
+    > Creación de rutas. 
+    > Parámetros en las rutas
+    > Métodos de las rutas
+    > Callbacks: métodos antes y después de las peticiones
+
+Frontend:
+    > Renderizar html 
+    > Archivos estáticos
+    > Integración con Bootstrap
+    > Jinja2
+    > Pasar datos del Backend al Frontend
+
+
+Estructura de un proyecto:
+    > Arquitectura MVC o MVT
+    > Estructura de carpetas y archivos
+        > Archivos de configuración
+        > Variables de entorno
+
+Formularios, obtener datos del usuario:
+    > Formularios: obtener datos del usuario enviados por el formularios
+    > Validación de formularios en el Frontend
+    > Validación de formularios en el Backend
+
+Integración con bases de datos:
+    > Sin ORM:
+        > SQLite3
+        > MySQL3
+        > PostreSQL
+        > MariaDB
+    > Con ORM, Uso de MySQLAlchemy y Peewee:
+        > SQLite3
+        > MariaDB
+        > MySQL3
+        > PostreSQL
+        > MongoDB
+
+    > Creación de modelos de datos
+
+    > Inserción masiva de datos (bulk_queries)
+
+Gestión de sesiones
+    > Inició de sesión
+    > Cerrar sesión
+    > Gestión de Cookies
+    > Creación y login de usuarios desde base de datos
+    > Autenticación con Github
+    > Autenticación con Google
+    > Autenticación con Facebook
+
+Utilidades:
+    > Mensajes Flash
+    > Manejo de errores y creación de errores personalizados
+    > Envío de emails
+    > 
+
+Manejo de archivos:
+    > Recibir archivos y guardarlos
+    > Presentar archivos
+    > Descargar archivos
+    > Guardar archivos en la base de datos
+    > Procesamiento de archivos
+        > Creación de PDFs como facturas o certificados
+        > Compresión de archivos 
+    > Subir archivos a un servicio de cloud
+    > Mostrar videos
+        > A través de youtube
+        > A través de Vimeo
+
+APIs:
+    > Consumir APIs desde el Backend
+    > Consumir APIs desde el Frontend
+    > Crear APIs RESTful (GET, POST, PUT, DELETE)
+    > JWT:
+        > Creación de JWT de manera temporal
+        > Autenticación de nuestros propios JWT
+        > Autenticación de otros JWT (como el de github)
+
+Asincronía en flask:
+    > Async
+    > Await
+
+SocketIO:
+    > Creación de un chat con SocketIO
+
+Ciberseguridad:
+    > Ataques CSRF
+    > Ataques DDOS
+    > SQL-Injection
+    > Cross Site Scripting
+
+Conexión de Flask a plataformas de pago:
+    > Conexión a stripe
+
+Interacción entre React.js y Flask:
+
+
+Deploy:
+    > Preparar servidor para producción con Guinicorn
+    > En Google Cloud Engine
+    > Render

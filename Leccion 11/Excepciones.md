@@ -20,11 +20,28 @@ if x > 5:
 
 # Realizar una afirmación
 
-Para evitar lanzar un error al mitad de la ejecución del programa se puede realizar una afirmación que en caso de ser False se detenga la ejecución del programa y lanze una exepción de tipo: `AssertionError`.
+Para evitar lanzar un error al mitad de la ejecución del programa se puede realizar una afirmación que en caso de ser False se detenga la ejecución del programa y lanze una exepción de tipo: `AssertionError`. Las aserciones son una expresion booleana, si es verdadera el programa continua normalmente si es falso se lanza una excepcion, con un mensaje de manera opcional.
+
+**Sintaxis**:
+```python
+assert <condition>, [message]
+```
 
 ```python
 import sys
 assert ('linux' in sys.platform), "This code runs on Linux only."
+```
+
+**Otro ejemplo de asserts**:
+```python
+def comprobar_lista(lista_calificaciones):
+    assert any(lista_calificaciones), 'The list of califications is empty'
+
+
+lista_calificaciones = []
+comprobar_lista(lista_calificaciones)
+
+# AssertinError: The list of califications is empty
 ```
 
 # Manejo de excepciones
@@ -130,7 +147,39 @@ class CustomException(Exception):
 ```
 Dentro de la clase luego podríamos agregar el código que querramos para agregarle "funcionalidad" a la excepción. 
 
-# Resumen
+También se pueden crear excepciones personalizadas que hereden de otras excepciones como ValueError o ZeroDivision.
+
+## Mejorando la excepción personalizada
+
+```python
+class MyHttpException(Exception):
+    def __init__(self, code=500, message='Internal server error'):
+        self.code = code
+        self.message = message
+
+try:
+    raise MyHttpException
+except MyHttpException as err:
+    print(err)
+```
+En este caso creamos una excepción personalizada que nos permite capturar errores Http. Entonces creamos dos atributos por defecto llamados code (haciendo referencia al código de respuesta Http) y el atributo message. Al crear estos objetos podemos lanzar la excepción y mostrar tanto la excepción como sus valores independientes, entonces podríamos saber tanto el código re respuesta ante la que se lanza esta excepción como su mensage.
+
+Además al ser una clase podremos modificar sus atributos y de esta manera hacer que la excepción sea aplicable a varias partes del código. 
+
+```python
+try:
+    raise MyHttpException(code=404, message='Not found')
+except MyHttpException as err:
+    print(err.code)
+    print(err.message)
+
+# 400
+# Not found
+```
+
+También es importante la genericidad de las excepciones, es decir, que una excepción sea bastante genérica para que luego creemos otras excepciones que hereden de esta.
+
+# Resumen 
 
 * `Try` le permite probar un bloque de código en busca de errores.
 * `Except` le permite manejar el error.

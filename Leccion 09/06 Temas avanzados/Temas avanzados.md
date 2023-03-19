@@ -98,6 +98,16 @@ print(player1.__ge__(player2))
 ```
 
 
+# **Representación de objetos**
+
+La representación de objetos consiste en definir un dunder-method que nos permita mostrar la forma en la cual se muestra el objeto para el programador.
+
+**Existen dos métodos de representación de objetos:**
+* `__str__` su objetivo es que la informacion sea legible para el usuario
+* `__repr__` su objetivo es que la informacion no sea ambigua
+  
+Es más recomendable utilizar el método `__repr__` ya que es más robusto, nos permite representar mayor cantidad de objetos. Además cuando llamamos al método str no se encuentra definido se llamará (por defecto) al método `__repr__`.
+
 ## **Método __str__**
 
 Uno de los métodos mágicos más utilizados es `__str__` que permite establecer la forma en la que un objeto es representado como cadena de texto.
@@ -114,14 +124,17 @@ class Player:
     
 
 
-player1 = Player('Player1', 200)
 print(player1.__str__())
 print(player1)
+print(str(player1))
+print(f'{player1!s}')
 
 # Name: PLayer1 - Power: 200
 # Name: PLayer1 - Power: 200
+# Name: PLayer1 - Power: 200
+# Name: PLayer1 - Power: 200
 ```
-Como vemos cuando llamamos al método str este nos retorna la representación del objeto. Pero este método también es útil a la hora de imprimir un objeto, ya que se mostrará la representación del objeto que hemos definido en el método str y no su dirección de memoria como se ve en el siguiente ejemplo.
+Las maneras de llamar al método str son varias. Se puede llamar como método de instancia, imprimiendo el objeto, pasando el objeto como parámetro de la función str o con un f-string con un signo de exclamación y una s que llama explícitamente al método str. Como vemos cuando llamamos al método str este nos retorna la representación del objeto. Pero este método también es útil a la hora de imprimir un objeto, ya que se mostrará la representación del objeto que hemos definido en el método str y no su dirección de memoria como se ve en el siguiente ejemplo.
 
 ```python
 class Player:
@@ -138,27 +151,34 @@ print(player1)
 
 ## **Método __repr__**
 
-Este método funciona de la misma manera que `__str__`, retornando la representación del objeto. Pero este método es más recomendado para realizar esta acción. Pues el método `__str__` llama al método `__repr__` para mostrar la representación del objeto. 
+Este método funciona de la misma manera que `__str__`, retornando la representación del objeto. Pero este método es más recomendado para realizar esta acción. Pues el método `__str__` llama al método `__repr__` para mostrar la representación del objeto. Además es utilizado más que para representar información del objeto es utilizado para retornar la información de tipo constructor de la clase, como el nombre de la clase y los nombres de los atributos que tiene la clase y no los valores de los atributos que un objeto tiene, como sucedía con el método str.
 
 ```python
-class Player:
-    def __init__(self, name, power):
-        self.power = power
-        self.name = name
+class My_class:
+    def __init__(self, marca, modelo, color):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
 
 
     def __repr__(self):
-        return f'Name: {self.name} - Power: {self.power}'
+        return (f'{self.__class__.__name__}('
+                f'{self.marca!r}, {self.modelo}, {self.color!r})')
     
 
 
-player1 = Player('Player1', 200)
-print(player1.__repr__())
-print(player1)
+obj = My_class('Marca', 'Modelo', 'Color')
+print(obj.__repr__())
+print(obj)
+print(repr(obj))
+print(f'{obj!r}')
 
-# Name: PLayer1 - Power: 200
-# Name: PLayer1 - Power: 200
+# My_class('Marca', Modelo, 'Color')
+# My_class('Marca', Modelo, 'Color')
+# My_class('Marca', Modelo, 'Color')
+# My_class('Marca', Modelo, 'Color')
 ```
+Como vemos esto muestra el nombre de la clase y luego mostramos la representación de cada uno de los atributos de la clase.
 
 # **Gestores de contexto con clases**
 
@@ -561,4 +581,158 @@ if __name__ == "__main__":
 # en decorador despues de wrapee foo de fa fa
 ```
 Inicialmente creamos una clase MyDec que va a ser el decorador, y en el constructor recibe todos los argumentos que sean necesarios en este caso agregamos el algumento flag. En el metodo `__call__(self)` que es el que se ejecuta cuando agregamos el decorador `@MyDec(flag='foo de fa fa')` en la funcion. Dentro de los argumentos de `__call__` esta original_func que es la funcion a la cual se le a colocado el decorador. Y dentro de `wrappee()` recibimos los argumentos de la funcion y posteriormente ejecutamos la funcion original_func(*args,**kwargs) y le pasamos los argumentos y los kwargs.
+
+# **Identidad de objetos**
+
+Mediante el operador `is` e `==` parecen ser lo mismo pero son muy diferentes.
+* El operador `==` compara el contenido de dos objetos 
+* Operador `is` revisa si dos objetos son iguales (objetos son identicos). Si apuntan al mismo objeto.
+
+**Ejemplo**:
+```python
+lista_a = [1,2,3]
+lista_b = [1, 2, 3]
+lista_c = lista_a
+
+
+print(lista_a == lista_b)
+print(lista_a is lista_b)
+print(lista_a is lista_c)
+
+# True
+# False
+# True
+```
+El primer resultado es True porque al comparar el contenido de las dos listas es igual. En el segundo resultado obtenemos False porque si bien las dos listas tienen el mismo contenido apuntan a direcciones diferentes de memoria. Por último obtenemos True porque la lista_a y la lista_c apuntan a la misma dirección de memoria.
+
+# **Clonación de objetos**
+
+La clonación de objetos consiste en copiar el contenido de un objeto a partir de otro. Existen dos tipos de copiado de objetos:
+* Copia superficial o simplemente copia. Copiamos el objeto pero todavía sigue teniendo referencias de memoria hacia el otro objeto.
+* Copia prodnda o deepcopy. Copiamos el objeto pero rompemos con toda referencia a memoria.
+
+## **Copia superficial**
+
+Ya explicamos de que se trata, ahora veremos un ejemplo en código.
+```python
+import copy
+
+
+lista_a = [[1,2],[3,4],[5,6]]
+lista_b = copy.copy(lista_a)
+
+print(f'Lista a: {lista_a}')
+print(f'Lista b: {lista_b}')
+
+lista_a[0][1] = 'A' 
+
+print(f'Lista a: {lista_a}')
+print(f'Lista b: {lista_b}')
+
+
+
+# Lista a: [[1, 2], [3, 4], [5, 6]]
+# Lista b: [[1, 2], [3, 4], [5, 6]]
+# Lista a: [[1, 'A'], [3, 4], [5, 6]]
+# Lista b: [[1, 'A'], [3, 4], [5, 6]]
+```
+Como vemos el índice 0 y en el elemento 1 de las dos listas ha sido modificado ya que el objeto copiado (la lista_b) todavía tiene direcciones de memoria que apuntan al contenido del otro objeto (la lista_a).
+
+**También podemos copiar un objeto utilizando el constructor original que creo ese objeto, como se presenta en este ejemplo:**
+```python
+lista_a = [[1,2],[3,4],[5,6]]
+lista_b = list(lista_a)
+```
+En este ejemplo obtenemos el mismo resultado que utilizando el método copy.copy() de la librería copy.
+
+## **Copia produnda**
+
+Ya explicamos de que se trata, ahora veremos un ejemplo en código.
+```python
+import copy
+
+
+lista_a = [[1,2],[3,4],[5,6]]
+lista_b = copy.deepcopy(lista_a)
+
+print(f'Lista a: {lista_a}')
+print(f'Lista b: {lista_b}')
+
+lista_a[0][1] = 'A' 
+
+print(f'Lista a: {lista_a}')
+print(f'Lista b: {lista_b}')
+
+
+
+# Lista a: [[1, 2], [3, 4], [5, 6]]
+# Lista b: [[1, 2], [3, 4], [5, 6]]
+# Lista a: [[1, 'A'], [3, 4], [5, 6]]
+# Lista b: [[1, 2], [3, 4], [5, 6]]
+```
+Como vemos hemos modificado el elemento 1 del índice 0 de la primer lista y como resultado no se ha modificado el valor en la segunda lista. Esto sucede de esta manera porque hemos realizado una copia profunda y se crea un nuevo objeto en vez de referenciarlo a otro.
+
+
+**Comparación**:
+
+![](https://i.stack.imgur.com/AWKJa.jpg)
+![](https://www.techiedelight.com/wp-content/uploads/Deep-Copy.png)
+
+Estos conocimientos se aplican también a clases definidas por el programador.
+
+# **Dataclases**
+
+Esta librería
+
+## **Definir una clase por medio del decorador dataclass**
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    identifier: int
+    name: str
+    lastname: str
+    email: str
+    password: str
+
+
+persona1 = Persona(1, 'Juan', 'Perez', 'juan@gmail.com', '1234')
+print(persona1.__repr__())
+```
+
+# **Diferencias entre variables de clase y variables de instancia**
+
+La diferencia es simple:
+* Las variables de clase son aquellas variables definidas fuerda del método init (constructor) y el igual para cada instancia.
+* Las variables de instancia son aquellas variables definidas dentro del método init (constructor) y dicho valor es independiente de cada instancia.
+
+**NOTA:**Básicamente son conocidos como atributos de la clase y atributos de instancia
+
+## **Atributos de clase**
+```python
+class Perro:
+	tipo_de_animal = 'Mamífero' #se define la variable de clase
+```
+
+
+## **Atributos de instancia**
+```python
+class Perro:
+    def __init__(self, nombre):
+		self.nombre = nombre #se define la variable de instancia
+```
+
+## Uso de los dos tipos de atributos en una clase
+
+```python
+class Perro:
+	tipo_de_animal = 'Mamífero' #se define la variable de clase
+
+	def __init__(self, nombre):
+		self.nombre = nombre #se define la variable de instancia
+```
+
 

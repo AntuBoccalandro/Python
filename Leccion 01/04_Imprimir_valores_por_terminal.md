@@ -295,3 +295,44 @@ pip install colorama
 from colorama import init, Fore, Back, Style
 ```
 
+# **Tips de formateo de texto a la hora de imprimir valores por consola**
+
+## **Mostrar n decimales**
+**Sintaxis**: Donde n es la cantidad de decimales que queremos especificar que se muestren y f hace referencia al tipo de dato float.
+```python
+<variable>:<0.nf>
+```
+
+**Ejemplo**:
+```python
+from math import pi
+
+print(f'PI es igual a {pi:0.10f}')
+# PI es igual a 3.1415926536
+```
+
+## **Completado de caracteres**
+**Sintaxis**: Donde `character` es el caracter con el que queremos rellenar el espacio (puede ser una letra o un número) seguido de un `caracter clave` que definirá la alineación del texto y luego `n` que corresponde al número de espacios que queremos justificar.
+```python
+<variable>:<character><keyword><n>
+```
+**Tabla de alineaciónes**:
+* `<` Hacia la izquierda
+* `>` Hacia la derecha
+* `^` Centrado
+
+**Ejemplo**:
+```python
+day = int(input('Ingrese el día: '))
+month = int(input('Ingrese el mes: '))
+year = int(input('Ingrese el año: '))
+
+print(f'{day:0>2}/{month:0>2}/{year}')
+# Ingrese el día: 1
+# Ingrese el mes: 2
+# Ingrese el año: 2023
+# 01/02/2023
+```
+
+
+

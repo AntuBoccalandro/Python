@@ -339,6 +339,16 @@ Las funciones lambda se limitan a operaciones de una línea. Es decir, no podemo
 
 Este tipos de funciones son bastante utilizadas en programación funcional, map, filters y reduce.
 
+**Las funciones lambda no son recomendables de utilizar para los siguientes casos**:
+* En el manejo de listas cuando la misma operación se puede simplificar o quedar más legible es recomendable utilizar list-comprenhencion.
+* En el uso de creación de métodos para clases como en este ejemplo:
+  ```python
+  class User:
+    mostrar = lambda self: print('Funcion mostrar...')
+    saludar = lambda self: print('Funcion saludar...')
+  ```
+  El código no queda muy entendible y puede ser confuso. Para este caso sería mejor utilizar la sintaxis tradicional para definir métodos.
+
 ## Chaching de funciones o memoización
 
 El caching de funciones consiste en alamacenar los resultados de la función en caché para que si se realiza una segunda llamada a la función esta retorne el resultado en caché y no tenga que volver a calcular. Esta práctica en funciones que realizen cálculos que lleven bastante tiempo y consumo de recursos permite ahorrar bastante tiempo.
@@ -365,6 +375,7 @@ from functools import lru_cache
 ```
 
 ```python
+# El maxsize de este decorador es 128.
 @lru_cache(maxsize=128)
 def is_prime(num):
   for n in range(2, num):
@@ -413,4 +424,29 @@ one()
 En este ejemplo se dispone de 4 funciones, una conteniendo a la otra. Como vemos las funciones se van llamando una a la otra pero sin llegar a ejecutar la función `one` ya que esta directamente la llamaremos desde el programa principal.
 
 Este tema se verá con más detalle en la creación de decoradores. Los decoradores tienen una estructura de funciones anidadas, reciben como parámetros a otras funciones y logran integrar todo el concimiento sobre funciones.
+
+
+# Objetos callables
+
+Los objetos callables son aquellos que permiten ser llamados o invocados. Ejemplos de objetos callable son las funciones. 
+
+La función built-in callable nos permite pasarle la referencia del objeto que queremos evaluar si es de tipo callable o no. Esta función retornará un booleano True si el objeto es callable o False en caso de que no lo sea.
+
+Si queremos que una clase defina objetos que se puedan llamar como funciones tenemos que sobreescribir el metodo `__call__`.
+
+```python
+class Mostrar:
+    def __init__(self, titulo):
+        self.titulo = titulo
+
+    def __call__(self, mensaje):
+        return self.titulo + ' - ' + mensaje
+
+mostrar_doctor = Mostrar('Doctor')
+print(mostrar_doctor('Carlos Ugalde'), ' / ', callable(mostrar_doctor))
+
+# Doctor - Carlos Ugade / True
+```
+Como vemos el objeto mostrar_doctor es de tipo callable. Esto sucede porque en una instancia de una clase sin el método `__call__` los objetos que creemos a partir de esta clase no será llamable. En cambio en esta clase al definir el método `__call__` hará que los objetos que creemos puedan ser llamados y hasta pasarle parámetros. 
+
 

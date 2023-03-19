@@ -1,8 +1,8 @@
-# Atributos
+# **Atributos**
 
 Son las caracteríticas que poseerán los objetos, por ejemplo si hablamos de una persona hablamos de atributos como name, lastname y age. Si hablamos de un auto podríamos pensar en color, velocidad, precio, etc… 
 
-Clase modelo Person:
+**Clase modelo Person:**
 ```python
 class Person:
     name = 'John'

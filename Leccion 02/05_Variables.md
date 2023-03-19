@@ -147,3 +147,42 @@ print(x, y)
 ```
 Como vemos le sumamos a x la variable y. Y a la variable y le restamos x. Por último para recuperar el valor de x solo basta con restarle y.
 
+## **Creación de variables temporales**
+
+Se pueden crear variables temporales mediante el uso de un guíon bajo, además dicho guíon será el identificador para esta variable, por lo que si necesitamos acceder al valor de esta variable utilizaremos un guíon bajo para indicar que queremos obtener el valor de esa variable. El uso del guíon bajo como variable temporal también se utiliza para indicar que una variable no tiene importancia.
+
+
+**Uso en un ciclo for**:
+```python
+for _ in range(3):
+    print(f'Hola... {_}')
+
+# Hola...1
+# Hola...2
+# Hola...3
+```
+
+**Uso como variable**:
+```python
+valores = ('Juan', 'Perez', 31)
+nombre, _ , edad = valores
+print(f'Nombre: {nombre}')
+print(f'Edad: {edad}')
+print(f'Apellido: {_}')
+
+# Nombre: Juan
+# Edad: 31
+# Apellido: Perez
+```
+
+**Uso con listas, aunque también se aplica a los demás tipos de datos**:
+```python
+_ = list()
+_.append(1)
+_.append(2)
+_.append(3)
+print(f'Variable temporal que apunta a una lista: {_}')
+
+# Variable temporal que apunta a una lista: [1, 2, 3]
+```
+

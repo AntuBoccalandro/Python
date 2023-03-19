@@ -167,3 +167,34 @@ print(multiplicar([1, 2, 3, 4, 5, 6, 7, 8, 9]))
 ```
 Como vemos retorna 100 en vez de 384 porque en el parámetro del decorador indicamos que el tamaño máximo sea de 100 por lo que si el resultado exede dicho resultado se mostrará el valor máximo y no el real de la multiplicación.
 
+
+# Utilización de múltiples decoradores
+
+La utilización de múltiples decoradores consiste en aplicar más de un decorador a una función, cada decorador tendría una funcionalidad diferente que modificaría o agregaría una funcionalidad diferente a la función decorada.
+
+En este ejemplo realizaremos dos decoradores que agregarán una etiqueta html a un texto que retorna la función decorada.
+
+Queremos obtener este resultado: `<strong><em>Hola</em></strong>`
+```python
+def negritas(funcion):
+    def funcion_envolvente():
+        return '<strong>' + funcion() + '</strong>'
+    return funcion_envolvente
+
+def enfatizar(funcion):
+    def funcion_envolvente():
+        return '<em>' + funcion() + '</em>'
+    return funcion_envolvente
+
+
+@negritas
+@enfatizar
+def saludar_html():
+    return 'Hola con HTML'
+
+print(saludar_html())
+```
+
+**IMPORTANTE!:** El orden de ejecución de los decoradores es de más interno a más externo. O de abajo hacia arriba.  En inglés se lo conoce como From bottom to top.
+
+
