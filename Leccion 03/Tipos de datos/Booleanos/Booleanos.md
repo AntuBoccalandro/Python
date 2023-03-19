@@ -114,3 +114,66 @@ El funcionamiento de este operador se resume en la siguiente tabla:
 | False | False | False      |
 
 
+# **Profundizando en el tipo de dato booleano**
+
+Vamos a ver los casos en el que la función bool retorna False y True. Para todos los tipos de datos existe un tipo de declaración como 0, '', [], etc, que la función bool retornará False, y un valor como 1, 'Hola', [1, 2, 3], etc, que será interpretado como True. La lógica sería esta: al haber un valor que no sea vacío (si contamos el 0 como si un número tuviera 0 unidades) interpretamos que es falso, si existe un valor que esté lleno será verdadero.
+
+```python
+# Tipos numericos, False para 0, True demás valores
+valor = 0
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: 0 False
+
+valor = 15
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: 15 True
+
+# Tipo str, False para '', True demás valores
+valor = ''
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: False
+
+valor = 'Hola'
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: Hola True
+
+
+# Tipo colecciones, False para colecciones vacias, True para todas las demás colecciones
+valor = []
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: [] False
+
+valor = [2,3,4]
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: [2,3,4] True
+
+
+# Tuplas, False para (), True para todos los demás tuplas
+valor = ()
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: () False
+
+valor = (2,3,4)
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: (2, 3, 4) True
+
+
+# Diccionarios, False para {}, True para todos los demás diccionarios
+valor = {}
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: {} False
+
+valor = {'nombre': 'Juan', 'apellido': 'Perez'}
+resultado = bool(valor)
+print(valor, resultado)
+# OUTPUT: {'nombre': 'Juan', 'apellido': 'Perez'} True
+```

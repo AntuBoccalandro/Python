@@ -735,4 +735,12 @@ class Perro:
 		self.nombre = nombre #se define la variable de instancia
 ```
 
+# **Funciones útiles**
+
+Hay algunas funciones útiles que sirven para manejar errores o haccer comprobaciones como debugear.
+
+## **Método super()**
+## **Función isisntancie()**
+## **Método __mro__**
+## **Método __bases__**
 
