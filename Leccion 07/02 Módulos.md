@@ -97,3 +97,37 @@ import result
 ### Creando e instalando un módulo local
 
 Si se tiene un módulo creado localmente si este lo movemos de ruta tendremos que cambiar el código a la hora de importar dicho módulo, instalar un módulo localmente permite tener accesible por toda la computadora dicho módulo pero sin tener que publicarlo en Pypi y realizar todo un módulo si lo que simplemente es no tener que cambiar el código a la hora de mover de ubicación el módulo.
+
+Para crear un módulo disponible para todos los archivos de nuestro entorno podemos crear una serie de archivos básicos que nos permitirán instalarlo localmente.
+
+**Archivo setup.cfg**:
+```python
+[metadata]
+name = local_structure
+version = 0.1.0
+
+[options]
+packages = structure
+```
+
+
+**Archivo setup.py**:
+```python
+import setuptools
+
+setuptools.setup()
+```
+
+**Comando de instalación local editable**:
+```bash
+ python -m pip install -e .
+```
+
+## Ejemplos de importaciones
+
+Supongamos que tenemos la siguiente estructura de archivos en nuestro proyecto.
+
+```bash
+
+```
+

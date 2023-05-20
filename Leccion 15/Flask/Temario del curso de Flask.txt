@@ -34,10 +34,8 @@ Integración con bases de datos:
         > SQLite3
         > MySQL3
         > PostreSQL
-        > MariaDB
     > Con ORM, Uso de MySQLAlchemy y Peewee:
         > SQLite3
-        > MariaDB
         > MySQL3
         > PostreSQL
         > MongoDB
@@ -59,7 +57,7 @@ Utilidades:
     > Mensajes Flash
     > Manejo de errores y creación de errores personalizados
     > Envío de emails
-    > 
+
 
 Manejo de archivos:
     > Recibir archivos y guardarlos

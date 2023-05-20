@@ -43,5 +43,9 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
+## **Inicialización de la aplicación**
 
-
+Si bien Flask tiene sus propios comandos podemos ejecutar la aplicación directamente desde el archivo .py creado.
+```bash
+python app.py
+```

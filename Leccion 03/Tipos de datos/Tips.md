@@ -11,6 +11,12 @@ lista = [
     'Item 2',
     'Item 3',
 ]
+
+tupla = (
+    1,
+    10,
+    100
+)
 ```
 Es importante agregar una coma al último elemento de la lista (colección) para que al agregar un nuevo elemento este no se concedene con el último elemento y se agrege como nuevo elemento de la lista.
 

@@ -1,4 +1,0 @@
-# **Consumir APIs con Python**
-
-
-

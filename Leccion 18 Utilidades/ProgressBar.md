@@ -290,5 +290,3 @@ for caracter in example_bar:
 for caracter in tqdm(range(100), total=100, ascii=True):
     time.sleep(0.1)
 ```
-
-
