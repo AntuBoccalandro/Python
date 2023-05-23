@@ -739,8 +739,293 @@ class Perro:
 
 Hay algunas funciones útiles que sirven para manejar errores o haccer comprobaciones como debugear.
 
-## **Método super()**
-## **Función isisntancie()**
-## **Método __mro__**
-## **Método __bases__**
+Claro, aquí tienes una descripción y un ejemplo de cada una de las funciones que mencionaste:
 
+# **Método super():**
+El método `super()` se utiliza para llamar a un método de la clase padre desde una clase hija en la programación orientada a objetos. Proporciona una forma de acceder y llamar a los métodos y atributos de la clase padre desde la clase hija. Se utiliza principalmente en casos en los que la clase hija necesita extender o modificar el comportamiento del método de la clase padre.
+
+**Ejemplo:**
+```python
+class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print("¡Hola! Soy un animal.")
+
+class Perro(Animal):
+    def __init__(self, nombre, raza):
+        super().__init__(nombre)
+        self.raza = raza
+
+    def saludar(self):
+        super().saludar()
+        print("¡Soy un perro y me llamo", self.nombre, "!")
+
+mi_perro = Perro("Max", "Labrador")
+mi_perro.saludar()
+```
+
+En este ejemplo, la clase `Perro` hereda de la clase `Animal`. Al utilizar `super().__init__(nombre)` dentro del método `__init__` de la clase `Perro`, se llama al método `__init__` de la clase padre `Animal` para inicializar el atributo `nombre`. Luego, al utilizar `super().saludar()` dentro del método `saludar` de la clase `Perro`, se llama al método `saludar` de la clase padre `Animal`, mostrando el saludo genérico de un animal. Después, se imprime un mensaje específico para un perro.
+
+# **Función isinstance():**
+La función `isinstance()` se utiliza para verificar si un objeto es una instancia de una clase dada. Retorna `True` si el objeto es una instancia de la clase especificada, y `False` en caso contrario. Esta función es útil para realizar comprobaciones de tipo en Python.
+
+**Ejemplo:**
+```python
+class Persona:
+    pass
+
+class Estudiante(Persona):
+    pass
+
+persona = Persona()
+estudiante = Estudiante()
+
+print(isinstance(persona, Persona))  # True
+print(isinstance(estudiante, Persona))  # True
+print(isinstance(persona, Estudiante))  # False
+```
+
+En este ejemplo, se define una clase `Persona` y una clase `Estudiante` que hereda de la clase `Persona`. Se crean dos objetos, `persona` y `estudiante`. Al utilizar la función `isinstance()` con estos objetos y las clases correspondientes, se puede verificar si el objeto es una instancia de la clase. En este caso, el objeto `persona` es una instancia de la clase `Persona` y también de la clase `Estudiante`, ya que `Estudiante` hereda de `Persona`. El objeto `estudiante` también es una instancia de la clase `Persona`, pero no de la clase `Estudiante` directamente.
+
+# **Método __mro__**
+El método `__mro__` es un atributo especial que muestra el orden de resolución de métodos (Method Resolution Order) utilizado por una clase en la herencia múltiple en Python. Proporciona una tupla que especifica el orden en el que se buscarán los métodos en caso de que existan métodos con el mismo nombre en diferentes clases en la jerarquía de herencia.
+
+**Ejemplo:**
+```python
+class A:
+
+
+    def saludar(self):
+        print("Hola desde A")
+
+class B:
+    def saludar(self):
+        print("Hola desde B")
+
+class C(A, B):
+    pass
+
+objeto = C()
+objeto.saludar()
+
+print(C.__mro__)
+```
+
+En este ejemplo, se definen las clases `A`, `B` y `C`. La clase `C` hereda de las clases `A` y `B` en ese orden. Al crear un objeto `objeto` de la clase `C` y llamar al método `saludar()`, se imprimirá "Hola desde A" porque el método `saludar()` de la clase `A` se resuelve primero según el orden especificado en `C.__mro__`.
+
+# **Método __bases__**
+El método `__bases__` es un atributo especial que muestra las clases base directas de una clase en Python. Proporciona una tupla que contiene las clases de las cuales la clase actual hereda directamente.
+
+**Ejemplo:**
+```python
+class Vehiculo:
+    pass
+
+class Coche(Vehiculo):
+    pass
+
+class Camion(Vehiculo):
+    pass
+
+print(Coche.__bases__)  # (Vehiculo,)
+print(Camion.__bases__)  # (Vehiculo,)
+print(Vehiculo.__bases__)  # (object,)
+```
+
+En este ejemplo, se definen las clases `Vehiculo`, `Coche` y `Camion`. La clase `Coche` y la clase `Camion` heredan directamente de la clase `Vehiculo`. Al imprimir `Coche.__bases__` y `Camion.__bases__`, se obtiene `(Vehiculo,)` como resultado, lo que indica que ambas clases heredan de la clase `Vehiculo`. La clase `Vehiculo` no tiene ninguna clase base directa, por lo que `Vehiculo.__bases__` retorna `(object,)`, ya que todas las clases en Python heredan de la clase base `object` de forma implícita.
+
+# **hasattr():**
+La función `hasattr()` se utiliza para verificar si un objeto tiene un atributo o un método con un nombre específico. Retorna `True` si el objeto tiene el atributo o método, y `False` en caso contrario.
+
+**Ejemplo:**
+```python
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print("¡Hola!")
+
+persona = Persona("Juan")
+
+print(hasattr(persona, "nombre"))  # True
+print(hasattr(persona, "saludar"))  # True
+print(hasattr(persona, "edad"))  # False
+```
+
+En este ejemplo, se define la clase `Persona` con un atributo `nombre` y un método `saludar()`. Se crea un objeto `persona` de la clase `Persona`. Al utilizar la función `hasattr()` con este objeto y los nombres de atributos o métodos correspondientes, se puede verificar si el objeto tiene ese atributo o método. En este caso, el objeto `persona` tiene el atributo `nombre` y el método `saludar()`, por lo que `hasattr(persona, "nombre")` y `hasattr(persona, "saludar")` retornarán `True`. Sin embargo, el objeto `persona` no tiene un atributo llamado `edad`, por lo que `hasattr(persona, "edad")` retornará `False`.
+
+# **Metaclases**
+
+Una metaclase es una clase cuyas instancias son clases en lugar de objetos. Es decir, si para construir un objeto usas una clase, para construir una clase usas una metaclase.
+
+La "función" `type` se utiliza a menudo para determinar el tipo de un objeto. Pero `type` no es una función, esesna metaclase y por tanto se puede heredar de ella. Y como `type` es una metaclase: cualquier subclase de `type` es una metaclase (algo parecido a lo que pasa con las clases abstractas). 
+
+## **Método `__new__`**
+`__new__` es un método peculiar. Es estático (staticmethod), es decir, existe con independencia de las instancias de la clase y por tanto no tiene un argumento self. En su lugar, lo que se le pasa como argumento es la propia clase, normalmente nombrado como cls.
+
+El proceso de creación de un objeto (instancia) de una clase es más o menos así (después lo refinamos):
+* Se invoca la clase con los argumentos requeridos
+* Se ejecuta el método `__new__` pasándose la clase a sí misma como primer argumento, y a continuación los argumentos que indicó el usuario en la “invocación” original.
+* `__new__` retorna una nueva instancia (esto es obligatorio).
+* Se ejecuta el método __init__ pasando como primer argumento la instancia creada por `__new__` y también todos los argumentos de la invocación original.
+
+**Ejemplo**:
+```python
+>>> class Title(str):
+...    def __new__(cls, val):
+...       print 'construyendo un nuevo objeto'
+...       return str.__new__(cls, val.title())
+
+>>> Title('transparencias adiós')
+construyendo un nuevo objeto
+'Transparencias Adiós'
+```
+
+## **Creando una metaclase**
+
+```python
+class MyMetaclase(type):
+    pass
+```
+Sabiendo que:
+* `__new__` sirve para crear clases
+* `__init__` sirve para inicializar/modificar clases
+
+Lo interesante aquí es que, “modificar una clase” incluye cosas como añadir o modificar métodos, sus implementaciones, sus nombres, argumentos y número, atributos, etc, etc, las posibilidades son infinitas.
+
+
+Ya toca escribir una metaclase que haga algo útil por poco que sea. Esta metaclase crea automáticamente métodos que se llaman `not_[método]` para cada método de la clase. Estos métodos devuelven el valor lógico negado de la función original.
+```python
+import types
+
+class AutoNot(type):
+    def __init__(cls, name, bases, dct):
+       type.__init__(cls, name, bases, dct)
+       methods = [x for x in dct if isinstance(dct[x], types.FunctionType)]
+       for m in methods:
+           setattr(cls, 'not_%s' % m, lambda self: not dct[m](self))
+
+class A:
+    __metaclass__ = AutoNot
+
+    def yes(self):
+        return True
+
+a = A()
+
+print a.yes()
+print a.not_yes()
+```
+Supongo que eso de crear clases pasando el nombre, la lista de clases base y el diccionario de métodos te parecerá tan ortopédico como a mí. No hay problema, afortunadamente hay una forma mucho más estilosa de usar una metaclase. Consiste en usar un atributo de clase especial llamado `__metaclass__` y asignarle la metaclase que quieras usar para crear esa clase. Lo siguiente es equivalente al ejemplo anterior pero modificado para usar `__metaclass__`.
+
+# **Interfaces**
+
+A un alto nivel, una interfaz actúa como modelo para el diseño de clases. Al igual que las clases, las interfaces definen métodos. A diferencia de las clases, estos métodos son abstractos. Un método abstracto es aquel que la interfaz simplemente define. No implementa los métodos. Esto lo hacen las clases, que luego implementan la interfaz y dan un significado concreto a los métodos abstractos de la interfaz.
+
+Las interfaces en Python se implementan de manera bastante diferente a otros lenguajes como Java o C++, ya que en verdad es una herencia de clases abstractas.
+
+## **Interfaces Informales**
+
+En determinadas circunstancias, es posible que no necesite las reglas estrictas de una interfaz Python formal. La naturaleza dinámica de Python le permite implementar una interfaz informal . Una interfaz informal de Python es una clase que define métodos que se pueden anular, pero no hay una aplicación estricta.
+
+**Creación de la interface**:
+```python
+# Interface diseñada para dos implementaciones de extracción de datos de PDFs y Emails.
+class InformalParserInterface:
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Load in the file for extracting text."""
+        pass
+
+    def extract_text(self, full_file_name: str) -> dict:
+        """Extract text from the currently loaded file."""
+        pass
+```
+
+**Ahora implementemos la inteface**:
+```python
+class PdfParser(InformalParserInterface):
+    """Extract text from a PDF"""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides InformalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text(self, full_file_path: str) -> dict:
+        """Overrides InformalParserInterface.extract_text()"""
+        pass
+
+
+class EmailParser(InformalParserInterface):
+    """Extract text from an email"""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides InformalParserInterface.load_data_source()"""
+        pass
+
+    # Atentos al método definido a continuación
+    def extract_text_from_email(self, full_file_path: str) -> dict:
+        """A method defined only in EmlParser.
+        Does not override InformalParserInterface.extract_text()
+        """
+        pass
+```
+
+Como vemos en las dos implementaciones de la interfaz en la primera se cumplen los dos métodos definidos en la interfaz, pero en la segunda implemenetación (EmailParser) no se respetan todos los métodos, es por eso que las interfaces informales son buenas para proyectos pequeños, pero para intermedios y grandes proyectos es necesario para evitar errores, el utilizar interfaces formales. Una interfaz formal nos arrojaría un error en caso de que no haya sido implementada estrictamente.
+
+## **Interfaces formales**
+
+Las interfaces formales garantizan la implementación exacta de la interfaz, cumpliendo con la implemenetación de todos los métodos que define la interfaz.
+
+```python
+import abc
+
+
+class FormalParserInterface(metaclass=abc.ABCMeta):
+    # El fragmento de código que has mostrado es una implementación de un método especial llamado __subclasshook__ en una clase en Python. Este método se utiliza para establecer la relación de subclase entre dos clases y se utiliza principalmente para verificar si una clase es una subclase válida de otra.
+    @classmethod
+    def __subclasshook__(cls, subclass):
+        return (hasattr(subclass, 'load_data_source') and 
+                callable(subclass.load_data_source) and 
+                hasattr(subclass, 'extract_text') and 
+                callable(subclass.extract_text) or 
+                NotImplemented)
+
+    # Creación de un método abstracto
+    @abc.abstractmethod
+    def load_data_source(self, path: str, file_name: str):
+        """Load in the data set"""
+        raise NotImplementedError
+
+    # Creación de un método abstracto
+    @abc.abstractmethod
+    def extract_text(self, full_file_path: str):
+        """Extract text from the data set"""
+        raise NotImplementedError
+
+
+# Implementación de una iterfaz
+class PdfParserNew(FormalParserInterface):
+    """Extract text from a PDF."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text(self, full_file_path: str) -> dict:
+        """Overrides FormalParserInterface.extract_text()"""
+        pass
+
+
+# Implementación de una iterfaz incorrectamente. Ya que a tiempo de ejecución se tendrá un error porque no han sido implementados todos los métodos que define la interface.
+class EmlParserNew(FormalParserInterface):
+    """Extract text from an email."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text_from_email(self, full_file_path: str) -> dict:
+        """A method defined only in EmlParser.
+        Does not override FormalParserInterface.extract_text()
+        """
+        pass
+```
