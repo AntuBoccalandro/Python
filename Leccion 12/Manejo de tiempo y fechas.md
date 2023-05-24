@@ -134,3 +134,25 @@ new_date = now + timedelta(days=2)
 ```
 También podemos utilizar keywords como: years, weeks, months, days, para sumar o restar estas unidades de tiempo a las fechas.
 
+También se puede utilizar el operador de suma (`+`).
+
+## Restar horas
+
+Supongamos que quermos saber la edad de una persona, pero no nos basta con el año, quermos tener exactitud utilizando días y meses.
+```python
+from datetime import datetime
+
+fecha1 = datetime(2001, 5, 5)  # Primera fecha
+fecha2 = datetime(2023, 5, 23)  # Segunda fecha
+
+# Calcula la diferencia total en meses
+diferencia_meses = (fecha2.year - fecha1.year) * 12 + (fecha2.month - fecha1.month)
+
+# Calcula los años y meses
+anios = diferencia_meses // 12
+meses = diferencia_meses % 12
+
+print(f'{anios} años y {meses} meses')
+```
+
+

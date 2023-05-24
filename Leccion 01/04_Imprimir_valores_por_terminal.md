@@ -334,5 +334,24 @@ print(f'{day:0>2}/{month:0>2}/{year}')
 # 01/02/2023
 ```
 
+# **Limpiar la terminal**
 
+Si se quiere limpiar la terminal se pueden utilizar dos formas:
 
+## **Limpiar la terminal con el módulo os**
+```python
+import os
+
+def limpiar_consola():
+    if os.name == 'posix':  # Linux y macOS
+        os.system('clear')
+    else:  # Windows y otros
+        os.system('cls')
+
+```
+
+## **Limpiar la terminal con la función print()**
+```python
+def limpiar_consola_unicode():
+    print("\u001b[2J\u001b[H", end='')
+```
