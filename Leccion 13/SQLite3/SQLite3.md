@@ -34,8 +34,10 @@ conn.execute('''CREATE TABLE IF NOT EXISTS usuarios
              nombre TEXT NOT NULL,
              edad INTEGER NOT NULL);''')
 
+cursor = conn.cursor()
+
 # Insertar datos en la tabla
-conn.execute("INSERT INTO usuarios (nombre, edad) VALUES (?, ?)", ("Juan", 28))
+cursor.execute("INSERT INTO usuarios (nombre, edad) VALUES (?, ?)", ("Juan", 28))
 
 # Leer datos de la tabla
 cursor = conn.execute("SELECT id, nombre, edad from usuarios")
@@ -45,10 +47,10 @@ for row in cursor:
     print("Edad = ", row[2])
 
 # Actualizar datos en la tabla
-conn.execute("UPDATE usuarios set edad = ? where nombre = ?", (30, "Juan"))
+cursor.execute("UPDATE usuarios set edad = ? where nombre = ?", (30, "Juan"))
 
 # Eliminar datos de la tabla
-conn.execute("DELETE from usuarios where id = ?", (1,))
+cursor.execute("DELETE from usuarios where id = ?", (1,))
 
 # Confirmar los cambios
 conn.commit()

@@ -51,10 +51,10 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 # Execute the query
-cursor.excecute('SELECT * FROM table')
+cursor.execute('SELECT * FROM table')
 
 # Commit the query
-cursor.commit()
+conn.commit()
 
 # Close the cursor
 cursor.close()

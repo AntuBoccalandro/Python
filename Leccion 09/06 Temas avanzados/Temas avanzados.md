@@ -1,4 +1,4 @@
-# **Sobre carga de operadores**
+# **Sobrecarga de operadores**
 
 La sobrecarga de operadores consiste en utilizar la programación orientada a objetos para crear clases en las que definamos que va a hacer cada operador. Esto nos permite ahorrar mucho tiempo en proyectos, sobre todo grandes. Por ejemplo podríamos sobrecargar el operador de suma para que reste dos objetos de nuestra clase, esto resultaría contraintuitivo pero nos permite realizar operaciones personalizadas con los objetos de una clase propia.
 

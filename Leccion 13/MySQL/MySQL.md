@@ -49,7 +49,7 @@ cursor = conn.cursor()
 cursor.excecute('SELECT * FROM table')
 
 # Commit the query
-cursor.commit()
+conn.commit()
 
 # Close the cursor
 cursor.close()
