@@ -349,7 +349,7 @@ Este tipos de funciones son bastante utilizadas en programación funcional, map,
   ```
   El código no queda muy entendible y puede ser confuso. Para este caso sería mejor utilizar la sintaxis tradicional para definir métodos.
 
-## Chaching de funciones o memoización
+## Chaching de funciones y memoización
 
 El caching de funciones consiste en alamacenar los resultados de la función en caché para que si se realiza una segunda llamada a la función esta retorne el resultado en caché y no tenga que volver a calcular. Esta práctica en funciones que realizen cálculos que lleven bastante tiempo y consumo de recursos permite ahorrar bastante tiempo.
 
@@ -383,6 +383,11 @@ def is_prime(num):
         return True
   return False
 ``` 
+
+Si se quiere limpiar la caché de una función que la implementa es posible mediatne el método `cache_clear()`.
+```python
+is_prime.cache_clear()
+```
 
 # Funciones anidadas
 

@@ -201,7 +201,7 @@ Los métodos de listas son funciones incorporadas que permiten trabajar con este
 * **list()**: convierte un objeto a una lista.
     ```python
     tupla = (1,2,3)
-    lista = llist(tupla)
+    lista = list(tupla)
     print(lista, type(lista))
 
     # [1,2,3]
