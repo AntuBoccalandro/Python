@@ -252,14 +252,14 @@ NOTA: como vemos se define la función con el nombre de suma y luego se suman su
 Si bien no es necesario especificar el tipo de dato que retorna la función, si es una buena práctica utilizarlo ya que permite saber el dato que se espera de la función. Además cuando llamemos a la función además de los parámetros de la función veremos el tipo de dato que retorna.
 **Sintaxis**:
 ```python
-def <function_name>(<argument_name>) -> <datatype>
+def <function_name>(<argument_name>) -> <datatype>:
   <code> 
 ```
 NOTA: el nombre del tipo de dato debe estar escrito de la forma abreviada, tales como: `int`, `str`, `list`, etc.
 
 **Ejemplo**:
 ```python
-def suma(a, b)-> int
+def suma(a, b) -> int
   suma = a + b 
   return suma
 
@@ -375,7 +375,7 @@ from functools import lru_cache
 ```
 
 ```python
-# El maxsize de este decorador es 128.
+# El parámetro "maxsize" tiene como máximo valor: 128
 @lru_cache(maxsize=128)
 def is_prime(num):
   for n in range(2, num):

@@ -8,30 +8,47 @@ En secciones anteriores vimos que en los formularios el usuario puede ingresar d
 
 ## **Guardar archivo de un formulario**
 ```python
-from flask import Flask, request, render_template, url_for
-from werkzeug.utils import redirect
-from os import getcwd
+import os
+from flask import Flask, flash, request, redirect, url_for
+from werkzeug.utils import secure_filename
 
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # Esta variable se obtiene de la configuración de la aplicación, convenientemente
 
-# Ruta donde almacenaremos los archivos.
-PATH = getcwd()+'\\files\\'
+# Verificación de tipo de archivo, para evitar archivos con intenciones maliciosas o que interprete nuestro backend
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
-# Ruta para subir los arhivos
-@app.route('/', methods=['GET'])
-def upload():
-    return render_template('index.html')
-
-
-# Ruta para guardar los archivos. Lo recibimos del formulario y luego lo guardamos en una carpeta de la aplicación.
-@app.route('/save', methods=['POST'])
-def save_file():
-    files = request.files['nameofFile']
-    files.save(PATH+files.filename)
-    return redirect(url_for('upload'))
-
+@app.route('/', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # Chequeo para saber si se recibió un archivo como tal
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # Si el usuario no selecciona un archivo, el navegador envía un archivo vacío sin nombre.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        # Guardado como tal del archivo recibido
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('download_file', name=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -57,9 +74,9 @@ def save_file():
     # El método getlist nos permite obtener una lista de los archivos envíados a través del formulario
     files = request.files.getlist('files')
 
-    # Iternamos sobre los diferentes archivos subidos
+    # Iternamos sobre los diferentes archivos subidos y los guardamos uno por uno
     for file in files:
-        file.save(os.path.join('C:\\Users\\Usuario\\Desktop\\Test Flask Forms\\Flask Test 1\\files\\', file.filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
     
     return redirect(url_for('upload'))
 ```
@@ -67,26 +84,9 @@ def save_file():
 ## **Validación de archivos**
 
 Si queremos mostrar unicamente cierto/s tipo de archivo que se pueda subir al formulario podemos agregar un atributo al input del formulario.
-
 ```html
 <form action="/save" method="POST" enctype="multipart/form-data">
     <!-- Separamos por comas las extenciones de archivo -->
     <input type="file" accept=".jpg, .jpeg, .png" >
 </form>
-```
-
-## **Guardar carpetas**
-
-Hasta ahora si queríamos subir varios archivos teníamos que seleccionarlos, pero si estoy creado una aplicación donde el usuario debe subir carpetas, como podemos hacer para subir todo el contenido de esta al servidor.
-
-**Formulario html**:
-```html
-<form action="/save" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file" multipart>
-</form>
-```
-
-**Backend en Python**:
-```python
-
 ```

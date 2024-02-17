@@ -1,13 +1,10 @@
-# **Integración de base de datos con ORM**
-
+# **Integración de base de datos sin ORM**
 Veremos las diferentes bases de datos con las cuales podemos integrar nuestra aplicación.
 
 # **SQLite3**
-
 Esta base de datos es muy simple pero es útil para proyectos simples y pequeños.
 
 ## **Conexión**
-
 ```python
 from flask import Flask
 import sqlite3
@@ -23,7 +20,6 @@ Estas serían las configuraciones de la base de dato, pero para concer como trat
 Utilizaremos el módulo `flask-mysql` que lo instalaremos mediante el comando `pip install flask-mysql`.
 
 ## **Conexión**
-
 
 ```python
 from flask import Flask
@@ -44,9 +40,6 @@ mysql.init_app(app)
 Estas serían las configuraciones de la base de dato, pero para concer como tratar con este tipo de base de dato recomendamos leer la sección de [manejo de bases de datos con Python con MySQL ↗](../../Leccion%2013/MySQL/MySQL.md)
 
 # **PostgreSQL**
-
-
-
 ```python
 import psycopg2
 from flask import Flask
